@@ -2,7 +2,7 @@
 
 My stylelint config for linting svelte files. You can use it along side Prettier without conflicts.
 
-It extends [stylelint-config-html](https://www.npmjs.com/package/stylelint-config-html) to make svelte files parseable, and my own default config[stylelint-config-roboleary](https://www.npmjs.com/package/stylelint-config-roboleary).
+It extends [stylelint-config-html](https://www.npmjs.com/package/stylelint-config-html) to make svelte files parseable, and my own default config [stylelint-config-roboleary](https://www.npmjs.com/package/stylelint-config-roboleary).
 
 This can be used along side Prettier (which is used by the VS Code Svelte extension), all conflicting rules are disabled.
 
@@ -24,7 +24,7 @@ This can be used along side Prettier (which is used by the VS Code Svelte extens
    ```json
    {
         "scripts": {
-          "lint": "stylelint **/*.{css,scss}",
+          "lint": "stylelint **/*.svelte",
           "lint:fix": "npm run style-lint -- --fix",
         }
    }
