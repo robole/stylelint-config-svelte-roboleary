@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-svelte-roboleary",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "My stylelint config for linting Svelte files. This can be used along side Prettier (which is used by the VS Code Svelte plugin), all conflicting rules are disabled.",
   "main": "index.js",
   "keywords": [
@@ -28,7 +28,7 @@
     "url": "https://github.com/robole/stylelint-config-svelte-roboleary/issues"
   },
   "homepage": "https://github.com/robole/stylelint-config-svelte-roboleary#readme",
-  "devDependencies": {
+  "dependencies": {
     "postcss-html": "^1.2.0",
     "stylelint-config-html": "^1.0.0",
     "stylelint-config-svelte-roboleary": ">=0.4.0"
