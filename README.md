@@ -32,20 +32,36 @@ This can be used along side Prettier (which is used by the VS Code Svelte extens
 
 ## Configuration in VS Code
 
-If you want to use stylelint and Prettier in VS Code, I recommend installing these 3 extensions: [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), and [Format Code Action](https://marketplace.visualstudio.com/items?itemName=rohit-gohri.format-code-action&ssr=false#review-details) to enable Prettier to be run as a code action.
+The [Svelte for VS Code extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) uses Prettier under the hood for code formatting. This config ensures that stylelint rules and Prettier's default rules don't interfere when formatting the code.
 
-To format and lint CSS/SCSS code on save, you can update your user settings with the following:
+I find it better to run linting and formatting as code actions. This way it is possible to run linting and formatting as a series of actions: lint first, then format.
+
+I have installed 3 extensions for linting CSS and formatting code on any project:
+
+- [stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint),
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), and
+- [Format Code Action](https://marketplace.visualstudio.com/items?itemName=rohit-gohri.format-code-action&ssr=false#review-details).
+
+To lint and format your svelte code on save, you can update your user settings with the following:
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": [
-    "source.formatDocument",
-    "source.fixAll"
-  ],
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "less", "postcss", "svelte", "vue"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll"],
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
 }
 ```
+
+We disable VS Code's builtin formatting for CSS-like syntaxes here too (`css.validate`). From v14+ of stylelint, we must explicitly declare what languages we want stylelint to lint via `stylelint.validate`.
+
+You can try out this project which has stylelint set-up correctly to test your configuration: [https://github.com/robole/svelte-todo-with-tests](https://github.com/robole/svelte-todo-with-tests).
 
 ## Show gratitude
 
